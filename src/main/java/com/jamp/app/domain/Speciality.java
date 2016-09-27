@@ -21,7 +21,7 @@ public class Speciality extends BaseEntity implements Serializable {
 	@NotEmpty
 	private String name;
 	
-	@OneToMany(mappedBy = "program", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "speciality", cascade = CascadeType.PERSIST)
     private List<Program> programs = new ArrayList<>();
 
 	public String getName() {
@@ -32,6 +32,15 @@ public class Speciality extends BaseEntity implements Serializable {
 		this.name = name;
 	}
 	
+	public Speciality() {
+	}
+	
+	public Speciality(Integer id, String name) {
+		super();
+		super.id = id;
+		this.name = name;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, name);

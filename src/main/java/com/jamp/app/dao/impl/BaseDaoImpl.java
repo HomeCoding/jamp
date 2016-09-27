@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.jamp.app.dao.BaseDao;
 import com.jamp.app.domain.BaseEntity;
 
-
+@Transactional
 public abstract class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 
 	protected Class<T> clazz;

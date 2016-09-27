@@ -11,7 +11,7 @@
 	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
  
  	<!-- It register the beans in context and scan the annotations inside beans and activate them -->
-    <context:component-scan base-package="com.howtodoinjava.demo" />
+    <context:component-scan base-package="com.*" />
     
     <!-- This allow for dispatching requests to Controllers by registering 
     	 two beans - DefaultAnnotationHandlerMapping and AnnotationMethodHandlerAdapter -->
@@ -29,14 +29,17 @@
     </bean>
     
     <!-- To validate the posted add employee form -->
-    <bean id="employeeValidator" class="com.howtodoinjava.demo.validator.EmployeeValidator" />
+<!--     <bean id="employeeValidator" class="com.howtodoinjava.demo.validator.EmployeeValidator" /> -->
+    
+    
+    <bean id="programValidator" class="com.jamp.app.validator.ProgramValidator" />
     
     <!-- This produces a container-managed EntityManagerFactory; 
     	 rather than application-managed EntityManagerFactory as in case of LocalEntityManagerFactoryBean-->
     <bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
       <property name="dataSource" ref="dataSource" />
       <!-- This makes /META-INF/persistence.xml is no longer necessary -->
-      <property name="packagesToScan" value="com.howtodoinjava.demo.model" />
+      <property name="packagesToScan" value="com.*" />
       <!-- JpaVendorAdapter implementation for Hibernate EntityManager.
       	   Exposes Hibernate's persistence provider and EntityManager extension interface -->
       <property name="jpaVendorAdapter">
