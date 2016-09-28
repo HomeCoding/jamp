@@ -1,5 +1,6 @@
 package com.jamp.app.controller;
 
+import java.beans.PropertyEditorSupport;
 import java.util.List;
 import java.util.Set;
 
@@ -9,6 +10,7 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -47,6 +49,7 @@ public class ProgramController {
 	@InitBinder
     public void initBinder(WebDataBinder binder) {
         binder.registerCustomEditor(Speciality.class, new SpecialityEditor());
+		//binder.registerCustomEditor(Speciality.class, new PropertyEditorSupport());
     }
 	
 	@ModelAttribute("allSpecialities")

@@ -6,7 +6,6 @@ import org.springframework.validation.Validator;
 
 import com.jamp.app.domain.Program;
 
-
 public class ProgramValidator implements Validator {
 
 	@Override
