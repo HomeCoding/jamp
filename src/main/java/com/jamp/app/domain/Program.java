@@ -21,7 +21,6 @@ public class Program extends BaseEntity implements Serializable {
 	private String name;
 
 	@NotNull
-	//@Valid
 	@ManyToOne
 	protected Speciality speciality;
 

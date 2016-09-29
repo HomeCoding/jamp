@@ -32,15 +32,6 @@ public class Speciality extends BaseEntity implements Serializable {
 		this.name = name;
 	}
 	
-	public Speciality() {
-	}
-	
-//	public Speciality(Integer id, String name) {
-//		super();
-//		super.id = id;
-//		this.name = name;
-//	}
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, name);

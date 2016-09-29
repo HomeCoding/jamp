@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	
-	<display-name>Spring Hibernate JPA Hello World Application</display-name>
+	<display-name>JAMP application</display-name>
 	
 	<!-- Configuration file for the root application context -->
     <listener>
@@ -17,7 +17,6 @@
         </param-value>
     </context-param>
 	
-	<!-- Configuration for the DispatcherServlet -->
 	<servlet>
 		<servlet-name>spring</servlet-name>
 			<servlet-class>

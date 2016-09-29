@@ -11,7 +11,6 @@ import com.jamp.app.service.ProgramService;
 
 @Service
 public class ProgramServiceImpl implements ProgramService {
-	
 	@Autowired
 	private ProgramDao programDao;
 
@@ -22,8 +21,7 @@ public class ProgramServiceImpl implements ProgramService {
 
 	@Override
 	public void remove(Program program) {
-		// TODO Auto-generated method stub
-		
+		programDao.remove(program);		
 	}
 
 	@Override
@@ -33,8 +31,6 @@ public class ProgramServiceImpl implements ProgramService {
 
 	@Override
 	public Program getById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return programDao.getById(id);
 	}
-	
 }

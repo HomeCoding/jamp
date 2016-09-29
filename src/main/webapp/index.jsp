@@ -1,5 +1,7 @@
+
 <html>
 <body>
-<h2>Hello World!</h2>
+	<h2>Links</h2>
+	<a href="/jamp-app/admin">Admin Panel</a>
 </body>
 </html>
