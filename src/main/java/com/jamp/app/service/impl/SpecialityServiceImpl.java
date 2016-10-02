@@ -21,4 +21,19 @@ public class SpecialityServiceImpl implements SpecialityService {
 		return specialityDao.getAll();
 	}
 
+	@Override
+	public void create(Speciality speciality) {
+		specialityDao.create(speciality);
+	}
+
+	@Override
+	public void remove(Speciality speciality) {
+		specialityDao.remove(speciality);
+	}
+
+	@Override
+	public Speciality getById(Integer id) {
+		return specialityDao.getById(id);
+	}
+
 }

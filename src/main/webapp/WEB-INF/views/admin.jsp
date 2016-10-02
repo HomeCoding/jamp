@@ -21,6 +21,7 @@
 <body>
 	<h3>Admin links</h3>
 	<ul>
+		<li><a href="/jamp-app/admin/specialities">List of specialities</a></li>
 		<li><a href="/jamp-app/admin/programs">List of programs</a></li>
 	</ul>
 </body>
