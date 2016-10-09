@@ -8,18 +8,18 @@ import javax.persistence.criteria.CriteriaQuery;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jamp.app.dao.BaseDao;
+import com.jamp.app.dao.BaseCrudDao;
 import com.jamp.app.domain.BaseEntity;
 
 @Transactional
-public abstract class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
+public abstract class BaseCrudDaoImpl<T extends BaseEntity> implements BaseCrudDao<T> {
 
 	protected Class<T> clazz;
 	
 	@PersistenceContext
 	protected EntityManager em;
 
-	public BaseDaoImpl(Class<T> clazz) {
+	public BaseCrudDaoImpl(Class<T> clazz) {
 		this.clazz = clazz;
 	}
 	
@@ -47,11 +47,6 @@ public abstract class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 
 	@Override
 	public T getById(Integer id) {
-		System.out.println("getById = " + em.find(clazz, id));
-		
-		
 		return em.find(clazz, id);
-		
-		
 	}
 }

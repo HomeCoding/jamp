@@ -33,4 +33,9 @@ public class ProgramServiceImpl implements ProgramService {
 	public Program getById(Integer id) {
 		return programDao.getById(id);
 	}
+
+	@Override
+	public void update(Program program) {
+		programDao.update(program);
+	}
 }

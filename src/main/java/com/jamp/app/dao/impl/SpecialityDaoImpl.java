@@ -6,7 +6,7 @@ import com.jamp.app.dao.SpecialityDao;
 import com.jamp.app.domain.Speciality;
 
 @Repository
-public class SpecialityDaoImpl  extends BaseDaoImpl<Speciality> implements SpecialityDao {
+public class SpecialityDaoImpl extends BaseCrudDaoImpl<Speciality> implements SpecialityDao {
 
 	public SpecialityDaoImpl(Class<Speciality> clazz) {
 		super(clazz);

@@ -11,7 +11,7 @@ import com.jamp.app.domain.Program;
 
 @Repository
 @Transactional
-public class ProgramDaoImpl extends BaseDaoImpl<Program> implements ProgramDao {
+public class ProgramDaoImpl extends BaseCrudDaoImpl<Program> implements ProgramDao {
 
 	public ProgramDaoImpl(Class<Program> clazz) {
 		super(clazz);

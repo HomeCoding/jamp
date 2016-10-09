@@ -36,4 +36,9 @@ public class SpecialityServiceImpl implements SpecialityService {
 		return specialityDao.getById(id);
 	}
 
+	@Override
+	public void update(Speciality speciality) {
+		specialityDao.update(speciality);
+	}
+
 }
