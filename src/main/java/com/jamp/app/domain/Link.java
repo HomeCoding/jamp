@@ -8,8 +8,8 @@ import javax.persistence.Entity;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@DiscriminatorValue("web")
-public class WebResource extends Resource implements Serializable {
+@DiscriminatorValue("link")
+public class Link extends Resource implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@NotEmpty
@@ -33,7 +33,7 @@ public class WebResource extends Resource implements Serializable {
 		if (obj == null || getClass() != obj.getClass()) {
 			return false;
 		}
-		WebResource other = (WebResource) obj;
+		Link other = (Link) obj;
 
 		return Objects.equals(id, other.id) 
 				&& Objects.equals(name, other.name) 
