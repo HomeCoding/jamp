@@ -7,9 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @MappedSuperclass
-public abstract class BaseEntity implements Serializable {
+public abstract class BaseEntity extends AbstractPersistable<Integer> implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id

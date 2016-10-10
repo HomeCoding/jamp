@@ -1,4 +1,4 @@
-package hateoas.resource;
+package com.jamp.app.hateoas.resource;
 
 import org.springframework.hateoas.core.Relation;
 
