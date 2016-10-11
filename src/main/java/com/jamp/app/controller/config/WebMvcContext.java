@@ -12,6 +12,7 @@ import com.jamp.app.converter.LocalDateTimeConverter;
 
 @Configuration
 @EnableWebMvc
+
 //@EnableAsync
 //@EnableAspectJAutoProxy
 class WebMvcContext extends WebMvcConfigurerAdapter {
