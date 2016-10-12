@@ -7,6 +7,13 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>jamp app</name>
 	<url>http://maven.apache.org</url>
+	
+	<properties>
+		<java-version>1.8</java-version>
+		<spring.version>4.3.0.RELEASE</spring.version>
+		<jackson.version>2.8.3</jackson.version>
+	</properties>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -14,30 +21,36 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.1.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>4.1.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.1.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.hateoas</groupId>
-			<artifactId>spring-hateoas</artifactId>
-			<version>0.21.0.RELEASE</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.springframework.hateoas</groupId> -->
+<!-- 			<artifactId>spring-hateoas</artifactId> -->
+<!-- 			<version>0.21.0.RELEASE</version> -->
+<!-- 		</dependency> -->
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -134,9 +147,15 @@
 	<dependency>
 		<groupId>com.fasterxml.jackson.core</groupId>
 		<artifactId>jackson-annotations</artifactId>
-		<version>2.8.3</version>
-	</dependency>		
-		
+		<version>${jackson.version}</version>
+	</dependency>	
+	
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+				
 	</dependencies>
 
 
@@ -148,8 +167,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
 				</configuration>
 			</plugin>
 
@@ -158,8 +177,8 @@
 				<artifactId>tomcat8-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
 				</configuration>
 			</plugin>
 		</plugins>

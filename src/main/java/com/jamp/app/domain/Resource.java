@@ -7,13 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "resource")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type")
+@XmlAccessorType(XmlAccessType.NONE)
 public abstract class Resource extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
