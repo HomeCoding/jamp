@@ -14,6 +14,9 @@ public class HttpErrorController {
 	
 	@RequestMapping("/error")
 	public ModelAndView handelError(HttpServletRequest request) {
+		
+		System.out.println("http error controller");
+		
 		// Lets get the status code and uri from the request
 		final Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
 		String requestUri = (String) request.getAttribute("javax.servlet.error.request_uri");
