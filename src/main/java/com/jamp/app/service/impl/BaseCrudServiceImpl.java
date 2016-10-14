@@ -22,6 +22,11 @@ public abstract class BaseCrudServiceImpl<T extends BaseEntity> implements BaseC
 	public void remove(T entity) {
 		dao.remove(entity);
 	}
+	
+	@Override
+	public void remove(Integer id) {
+		dao.remove(id);
+	}
 
 	@Override
 	public void update(T entity) {

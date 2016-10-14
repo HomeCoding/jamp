@@ -10,6 +10,8 @@ public interface BaseCrudDao<T extends BaseEntity> {
 
 	void remove(T t);
 	
+	void remove(Integer id);
+	
 	void update(T t);
 
 	List<T> getAll();

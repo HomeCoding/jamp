@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.jamp.app.exception.RestResourceInvalidException;
 import com.jamp.app.exception.RestResourceNotFoundException;
 
 @ControllerAdvice
@@ -28,7 +30,7 @@ public class ExceptionController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 	
-	@ExceptionHandler(ConstraintViolationException.class)
+	@ExceptionHandler({ConstraintViolationException.class, RestResourceInvalidException.class})
 	public ResponseEntity<Void> handleValidationErrors() {
 		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	}
