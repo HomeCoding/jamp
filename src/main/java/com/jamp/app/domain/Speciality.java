@@ -8,6 +8,7 @@ import java.util.StringJoiner;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -21,7 +22,7 @@ public class Speciality extends BaseEntity implements Serializable {
 	@NotEmpty
 	private String name;
 	
-	@OneToMany(mappedBy = "speciality", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "speciality", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Program> programs = new ArrayList<>();
 
 	public String getName() {

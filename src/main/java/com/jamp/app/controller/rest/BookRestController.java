@@ -1,6 +1,7 @@
-package com.jamp.app.controller;
+package com.jamp.app.controller.rest;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,51 +12,52 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.jamp.app.domain.Link;
+import com.jamp.app.domain.Book;
 import com.jamp.app.exception.RestResourceInvalidException;
 import com.jamp.app.exception.RestResourceNotFoundException;
-import com.jamp.app.service.LinkService;
+import com.jamp.app.service.BookService;
+
 
 @RestController
-@RequestMapping("/rest/link")
-public class LinkController {
-
+@RequestMapping("/rest/book")
+public class BookRestController {
+	
 	@Autowired
-	private LinkService linkService;
-
-	@GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-	public List<Link> getAll() {
-		List<Link> links = linkService.getAll();
-		return links;
+	private BookService bookService;
+	
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<Book> getAll() {
+		List<Book> books = bookService.getAll();
+		return books;
 	}
 
-	@GetMapping(value = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-	public Link getById(@PathVariable("id") Integer id) {
-		Link link = linkService.getById(id);
-		if (link == null) {
+	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Book getById(@PathVariable("id") Integer id) {
+		Book book = bookService.getById(id);
+		if (book == null) {
 			throw new RestResourceNotFoundException();
 		}
-		return link;
+		return book;
 	}
 	
-	@PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-	public void create(@RequestBody Link link) {
-		linkService.create(link);
+	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void create(@RequestBody Book book) {
+		bookService.create(book);
 	}
 	
-	@PutMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
-	public void update(@RequestBody Link link) {
+	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void update(@RequestBody Book book) {
 		try {
-			linkService.update(link);
+			bookService.update(book);
 		} catch (RuntimeException e) {
 			throw new RestResourceInvalidException(e);
 		}
 	}	
 
-	@DeleteMapping(consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}) 
-	public void remove(@RequestBody Link link) {
+	@DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE) 
+	public void remove(@RequestBody Book book) {
 		try {
-			linkService.remove(link);
+			bookService.remove(book);
 		} catch (RuntimeException e) {
 			throw new RestResourceNotFoundException();
 		}
@@ -64,7 +66,7 @@ public class LinkController {
 	@DeleteMapping(value = "/{id}") 
 	public void removeById(@PathVariable("id") Integer id) {
 		try {
-			linkService.remove(id);
+			bookService.remove(id);
 		} catch (RuntimeException e) {
 			throw new RestResourceNotFoundException();
 		}
