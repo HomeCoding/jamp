@@ -9,8 +9,7 @@ import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -50,18 +49,6 @@ public class SpecialityController {
 		model.addAttribute("speciality", speciality);
 		return "admin-specialities";
 	}
-	
-	//TODO: Delete it
-	@RequestMapping(method = RequestMethod.GET, value = "json")
-	public ResponseEntity<List<Speciality>> getJson() {
-		List<Speciality> specialities = specialityService.getAll();
-		if(specialities.isEmpty()) {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-		
-		return new ResponseEntity<>(specialities, HttpStatus.OK);
-	}
-	
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String submitForm(@ModelAttribute("speciality") Speciality speciality, BindingResult result, SessionStatus status) {
