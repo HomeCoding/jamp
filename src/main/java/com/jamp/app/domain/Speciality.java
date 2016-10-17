@@ -22,7 +22,7 @@ public class Speciality extends BaseEntity implements Serializable {
 	@NotEmpty
 	private String name;
 	
-	@OneToMany(mappedBy = "speciality", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "speciality", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Program> programs = new ArrayList<>();
 
 	public String getName() {
@@ -33,6 +33,14 @@ public class Speciality extends BaseEntity implements Serializable {
 		this.name = name;
 	}
 	
+	public List<Program> getPrograms() {
+		return programs;
+	}
+
+	public void setPrograms(List<Program> programs) {
+		this.programs = programs;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id, name);
