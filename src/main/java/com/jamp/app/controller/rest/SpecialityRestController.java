@@ -35,13 +35,13 @@ public class SpecialityRestController {
 		
 		System.out.println("start...............................................");
 		
-		try {
-			System.out.println(speciality.getPrograms().size());
-			System.out.println(speciality.getPrograms());
-		} catch (Exception e) {
-			e.printStackTrace();
-			
-		}
+//		try {
+//			System.out.println(speciality.getPrograms().size());
+//			System.out.println(speciality.getPrograms());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			
+//		}
 		
 
 		

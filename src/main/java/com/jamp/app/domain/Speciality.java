@@ -14,6 +14,8 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "speciality")
 public class Speciality extends BaseEntity implements Serializable {
@@ -22,8 +24,9 @@ public class Speciality extends BaseEntity implements Serializable {
 	@NotEmpty
 	private String name;
 	
-	@OneToMany(mappedBy = "speciality", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Program> programs = new ArrayList<>();
+	@OneToMany(mappedBy = "speciality", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
+	private List<Program> programs = new ArrayList<>();
 
 	public String getName() {
 		return name;
