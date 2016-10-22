@@ -7,4 +7,6 @@ import com.jamp.app.domain.Speciality;
 
 public interface SpecialityService extends BaseCrudService<Speciality> {
 	List<Speciality> getByName(String name);
+	
+	List<Speciality> getAllWithPrograms();
 }

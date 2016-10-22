@@ -5,4 +5,6 @@ import com.jamp.app.domain.Speciality;
 
 public interface SpecialityDao extends BaseCrudDao<Speciality> {
 	List<Speciality> getByName(String name);
+
+	List<Speciality>  getAllWithPrograms();
 }

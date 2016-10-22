@@ -23,4 +23,9 @@ public class SpecialityServiceImpl extends BaseCrudServiceImpl<Speciality> imple
 	public List<Speciality> getByName(String name) {
 		return getDao().getByName(name);
 	}
+
+	@Override
+	public List<Speciality> getAllWithPrograms() {
+		return getDao().getAllWithPrograms();
+	}
 }

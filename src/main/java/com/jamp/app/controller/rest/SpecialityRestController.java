@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -21,8 +22,8 @@ public class SpecialityRestController {
 	private SpecialityService specialityService;
 	
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Speciality> getAll() {
-		List<Speciality> specialities = specialityService.getAll();
+	public List<Speciality> getAll(@RequestParam(value="expanded", required = false, defaultValue = "false") boolean expanded) {
+		List<Speciality> specialities =  expanded ? specialityService.getAllWithPrograms() :  specialityService.getAll();
 		return specialities;
 	}
 	
@@ -32,19 +33,6 @@ public class SpecialityRestController {
 		if (speciality == null) {
 			throw new RestResourceNotFoundException();
 		}
-		
-		System.out.println("start...............................................");
-		
-//		try {
-//			System.out.println(speciality.getPrograms().size());
-//			System.out.println(speciality.getPrograms());
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			
-//		}
-		
-
-		
 		return speciality;
 	}
 
