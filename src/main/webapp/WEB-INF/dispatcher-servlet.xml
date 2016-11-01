@@ -3,16 +3,24 @@
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:jpa="http://www.springframework.org/schema/data/jpa"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context-4.1.xsd
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
-	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
+	http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+	http://www.springframework.org/schema/data/jpa
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+	">
+ 
+ 	
  
     <context:component-scan base-package="com.*" />
     <mvc:annotation-driven />
     <tx:annotation-driven />
+    
+    <import resource="appconfig-security.xml"/>
      
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/" />
@@ -21,7 +29,7 @@
 	<mvc:resources mapping="/css/**" location="/resources/css/"  cache-period="31556926"/> 
  	<mvc:resources mapping="/fonts/**" location="/resources/fonts/"  cache-period="31556926"/>
     <mvc:resources mapping="/images/**" location="/resources/images/"  cache-period="31556926"/> 
-         
+       
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages" />
     </bean>
@@ -45,12 +53,14 @@
          </props>
       </property>
    </bean>
+   
+	<jpa:repositories base-package="com.jamp.app.repository"/>  
 
    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="com.mysql.jdbc.Driver" />
       <property name="url" value="jdbc:mysql://localhost:3306/test2" />
       <property name="username" value="root" />
-      <property name="password" value="root" />
+      <property name="password" value="12345" />
    </bean>
     
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
@@ -74,3 +84,4 @@
 <!-- 	</bean>    -->
    
 </beans>
+  
