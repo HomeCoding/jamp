@@ -29,6 +29,7 @@
 	<mvc:resources mapping="/css/**" location="/resources/css/"  cache-period="31556926"/> 
  	<mvc:resources mapping="/fonts/**" location="/resources/fonts/"  cache-period="31556926"/>
     <mvc:resources mapping="/images/**" location="/resources/images/"  cache-period="31556926"/> 
+    <mvc:resources mapping="/js/**" location="/resources/js/"  cache-period="31556926"/> 
        
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages" />
@@ -58,7 +59,7 @@
 
    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-      <property name="url" value="jdbc:mysql://localhost:3306/test2" />
+      <property name="url" value="jdbc:mysql://localhost:3306/account" />
       <property name="username" value="root" />
       <property name="password" value="12345" />
    </bean>
@@ -67,21 +68,5 @@
       <property name="entityManagerFactory" ref="entityManagerFactoryBean" />
    </bean>
 	
-<!-- 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"> -->
-<!-- 		<property name="messageConverters"> -->
-<!-- 			<list> -->
-<!-- 				<ref bean="jsonMessageConverter"/> -->
-<!-- 				<ref bean="xmlMessageConverter"/> -->
-<!-- 			</list> -->
-<!-- 		</property> -->
-<!-- 	</bean> -->
-		
-	<!-- Configure bean to convert JSON to POJO and vice versa -->
-<!-- 	<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"> -->
-<!-- 	</bean>	 -->
-	
-<!-- 	<bean id="xmlMessageConverter" class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter"> -->
-<!-- 	</bean>    -->
-   
 </beans>
   
