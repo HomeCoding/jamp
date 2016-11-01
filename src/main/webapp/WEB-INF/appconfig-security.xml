@@ -3,7 +3,7 @@
              xmlns:beans="http://www.springframework.org/schema/beans"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://www.springframework.org/schema/beans
-		http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
@@ -20,7 +20,7 @@
         </authentication-provider>
     </authentication-manager>
 
-    <beans:bean id="userDetailsServiceImpl" class="com.jamp.app.service.impl.UserDetailsServiceImpl"></beans:bean>
+    <beans:bean id="userDetailsServiceImpl" class="com.hellokoding.account.service.UserDetailsServiceImpl"></beans:bean>
 
     <beans:bean id="encoder"
           class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
