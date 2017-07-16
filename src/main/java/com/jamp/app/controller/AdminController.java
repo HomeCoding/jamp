@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //comment 3
 
 //co 1
+//co 2
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
