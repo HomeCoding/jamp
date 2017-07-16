@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //comment 1
 //comment 2
 //comment 3
+
+//co 1
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
