@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 //comment 1
+//comment 2
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
