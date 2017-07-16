@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 //co 1
 //co 2
 //co 3
+//co 4
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
